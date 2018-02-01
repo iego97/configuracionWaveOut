@@ -9,16 +9,17 @@
     <Grid>
         <TextBox x:Name="txtRuta" HorizontalAlignment="Left" Height="23" Margin="57,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" IsEnabled="False"/>
         <Button x:Name="btnBuscar" Content="Examinar" HorizontalAlignment="Left" Margin="411,27,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnBuscar_Click"/>
-        <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Margin="257,173,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnStop_Click" IsEnabled="False"/>
-        <Button x:Name="btnPlay" Content="Play" HorizontalAlignment="Left" Margin="64,173,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnPlay_Click"/>
+        <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Margin="250,169,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnStop_Click" IsEnabled="False"/>
+        <Button x:Name="btnPlay" Content="Play" HorizontalAlignment="Left" Margin="57,169,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnPlay_Click"/>
         <Slider x:Name="sldPosition" HorizontalAlignment="Left" Margin="57,65,0,0" VerticalAlignment="Top" Width="319" 
                 Thumb.DragCompleted="sldPosition_dragCompleted" 
                 Thumb.DragStarted = "sldPosition_dragStarted"
                 />
         <TextBlock x:Name="lblPosition" HorizontalAlignment="Left" Margin="57,88,0,0" TextWrapping="Wrap" Text="0:00" VerticalAlignment="Top"/>
         <TextBlock x:Name="lblDuration" HorizontalAlignment="Left" Margin="326,91,0,0" TextWrapping="Wrap" Text="0:00" VerticalAlignment="Top"/>
-        <Button x:Name="btnPause" Content="Pause" HorizontalAlignment="Left" Margin="157,175,0,0" VerticalAlignment="Top" Width="75" Click="btnPause_Click" IsEnabled="False"/>
-        <ComboBox x:Name="cbDisp" HorizontalAlignment="Left" Margin="64,128,0,0" VerticalAlignment="Top" Width="268"/>
+        <Button x:Name="btnPause" Content="Pause" HorizontalAlignment="Left" Margin="150,171,0,0" VerticalAlignment="Top" Width="75" Click="btnPause_Click" IsEnabled="False"/>
+        <ComboBox x:Name="cbDisp" HorizontalAlignment="Left" Margin="57,124,0,0" VerticalAlignment="Top" Width="268"/>
+        <Slider x:Name="sldVolumen" HorizontalAlignment="Left" Margin="441,65,0,0" VerticalAlignment="Top" Width="20" Orientation="Vertical" Height="93" Maximum="1" Value="0.5" Thumb.DragCompleted="sldVolumen_DragCompleted"/>
 
     </Grid>
 </Window>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
+using System.Windows; 
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -26,7 +26,7 @@ namespace Playback
     {
 
         private Mp3FileReader reader;
-        private WaveOut output;
+        private WaveOutEvent output;
         DispatcherTimer timer;
         bool dragging = false;
         
@@ -89,7 +89,7 @@ namespace Playback
         {
             if(output != null && output.PlaybackState == PlaybackState.Paused)
             {
-                output.Resume();
+                output.Play();
                 btnPlay.IsEnabled = false;
                 btnPause.IsEnabled = true;
                 btnStop.IsEnabled = true;
@@ -98,9 +98,16 @@ namespace Playback
                    {
                     if (txtRuta.Text != null && txtRuta.Text != "")
                     {
-                    output = new WaveOut();
+                    output = new WaveOutEvent();
                     output.PlaybackStopped += OnPlaybackStop;
                     reader = new Mp3FileReader(txtRuta.Text);
+
+                    //Configuraciones WaveOut
+                    output.DeviceNumber = cbDisp.SelectedIndex;
+                    output.NumberOfBuffers = 2;
+                    output.DesiredLatency = 150;
+                    output.Volume = (float)sldVolumen.Value;
+
 
                     output.Init(reader);
                     output.Play();
@@ -175,6 +182,14 @@ namespace Playback
                     btnStop.IsEnabled = false;
                     btnPlay.IsEnabled = true;
                 }
+            }
+        }
+
+        private void sldVolumen_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            if(output != null)
+            {
+                output.Volume = (float)sldVolumen.Value;
             }
         }
     }
